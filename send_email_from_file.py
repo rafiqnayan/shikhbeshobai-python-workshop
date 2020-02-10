@@ -27,7 +27,20 @@ with open('user_tokens.csv') as csv_file:
             to_email_address = row[1]
             user_token = row[2]
             line_count += 1
+            print "name: %s, email: %s, token: %s" % (user_name, to_email_address, user_token)
             email_body = body_template.substitute(name=user_name, token=user_token)
             yag.send(to=to_email_address, subject=subject, contents=email_body)
 
 print "Email sent successfully"
+
+from string import Template
+t = Template('Hey, $name! Welcome to $country')
+
+s = t.substitute(name='Bob', country='Bangladesh')
+print(s)
+
+s = t.substitute(name='Alice', country='Bangladesh')
+print(s)
+
+s = t.substitute(name='Bob', country='England')
+print(s)
