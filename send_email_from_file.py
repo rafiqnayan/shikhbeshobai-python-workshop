@@ -32,15 +32,3 @@ with open('user_tokens.csv') as csv_file:
             yag.send(to=to_email_address, subject=subject, contents=email_body)
 
 print "Email sent successfully"
-
-from string import Template
-t = Template('Hey, $name! Welcome to $country')
-
-s = t.substitute(name='Bob', country='Bangladesh')
-print(s)
-
-s = t.substitute(name='Alice', country='Bangladesh')
-print(s)
-
-s = t.substitute(name='Bob', country='England')
-print(s)
